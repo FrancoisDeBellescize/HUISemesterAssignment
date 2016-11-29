@@ -30,6 +30,12 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(sp_mainlayout, 300, 300));
 
         sp_mainlayout.getChildren().add(new Hexagone(20, 0, 0, 0).hexagone);
+        sp_mainlayout.getChildren().add(new Hexagone(20, 1, -1, 0).hexagone);
+        sp_mainlayout.getChildren().add(new Hexagone(20, 0, -1, 1).hexagone);
+        sp_mainlayout.getChildren().add(new Hexagone(20, -1, 0, 1).hexagone);
+        sp_mainlayout.getChildren().add(new Hexagone(20, -1, 1, 0).hexagone);
+        sp_mainlayout.getChildren().add(new Hexagone(20, 0, 1, -1).hexagone);
+        sp_mainlayout.getChildren().add(new Hexagone(20, 1, 0, -1).hexagone);
         //createHexagon(20, 1, -1, 0);
         /*createHexagon(20, 0, -1, 1);
         createHexagon(20, -1, 0, 1);
