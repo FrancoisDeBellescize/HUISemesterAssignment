@@ -1,15 +1,16 @@
 package sample;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import java.util.Hashtable;
 
 public class Main extends Application {
 
+    private StackPane sp_mainlayout;
     Hashtable board;
+
 
     void initGrid() {
         board = new Hashtable();
@@ -23,7 +24,7 @@ public class Main extends Application {
 
         for (int j = 0; j < size_map; j++) {
             for (int i = 0; i < line_size; i++) {
-                board.put(new Vector3(x, y, z), new Case());
+                board.put(new Vector3(x, y, z), new Case(x, y, z));
             }
             if (j < size_map / 2) {
                 x -= 1;
@@ -36,16 +37,20 @@ public class Main extends Application {
         }
     }
 
-
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+    public void init()
+    {
+//        initGrid();
+        sp_mainlayout = new StackPane();
+        sp_mainlayout.getChildren().add(new Hexagone(20, 0, 0, 0));
+    }
 
-        initGrid();
-
+    public void start(Stage primaryStage) throws Exception
+    {
         primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        primaryStage.setScene(new Scene(sp_mainlayout, 300, 300));
         primaryStage.show();
+
     }
 
 
