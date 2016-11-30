@@ -21,7 +21,7 @@ public class Case {
 
     public Case[] siblings = new Case[6];
 
-    public Case(int x, int y, int z, int status)
+    public Case(int x, int y, int z)
     {
         this.contained = null;
         this.pos_x = x;

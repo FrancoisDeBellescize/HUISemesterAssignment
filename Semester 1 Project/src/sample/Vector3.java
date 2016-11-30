@@ -1,0 +1,13 @@
+package sample;
+
+public class Vector3 {
+    int x;
+    int y;
+    int z;
+
+    Vector3(int x, int y, int z) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    }
+}
