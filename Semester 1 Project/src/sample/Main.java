@@ -4,7 +4,11 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+
 import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
 public class Main extends Application {
 
@@ -24,7 +28,8 @@ public class Main extends Application {
 
         for (int j = 0; j < size_map; j++) {
             for (int i = 0; i < line_size; i++) {
-                board.put(new Vector3(x, y, z), new Case(x, y, z));
+//                System.out.println((x + i) + " " + (y - i) + " " + z);
+                board.put(new Vector3(x + i, y - i, z), new Case(x + i, y - i, z));
             }
             if (j < size_map / 2) {
                 x -= 1;
@@ -38,24 +43,30 @@ public class Main extends Application {
     }
 
     @Override
-    public void init()
-    {
+    public void init() {
         sp_mainlayout = new StackPane();
+        initGrid();
+
+        Set<Vector3> keySet = board.keySet();
+        Iterator<Vector3> keySetIterator = keySet.iterator();
+
+        while (keySetIterator.hasNext()) {
+            Vector3 key = keySetIterator.next();
+            Case tmp = (Case)board.get(key);
+            sp_mainlayout.getChildren().add(tmp.hexa);
+        }
     }
 
-    public void start(Stage primaryStage) throws Exception
-    {
+    public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("Abalon");
-        primaryStage.setScene(new Scene(sp_mainlayout, 300, 300));
+        primaryStage.setScene(new Scene(sp_mainlayout, 500, 500));
 
-
-        sp_mainlayout.getChildren().add(new Hexagone(20, 0, 0, 0));
-        sp_mainlayout.getChildren().add(new Hexagone(20, 1, -1, 0));
-        sp_mainlayout.getChildren().add(new Hexagone(20, 0, -1, 1));
-        sp_mainlayout.getChildren().add(new Hexagone(20, -1, 0, 1));
-        sp_mainlayout.getChildren().add(new Hexagone(20, -1, 1, 0));
-        sp_mainlayout.getChildren().add(new Hexagone(20, 0, 1, -1));
-        sp_mainlayout.getChildren().add(new Hexagone(20, 1, 0, -1));
+//        sp_mainlayout.getChildren().add(new Hexagone(1, -1, 0));
+//        sp_mainlayout.getChildren().add(new Hexagone(0, -1, 1));
+//        sp_mainlayout.getChildren().add(new Hexagone(-1, 0, 1));
+//        sp_mainlayout.getChildren().add(new Hexagone(-1, 1, 0));
+//        sp_mainlayout.getChildren().add(new Hexagone(0, 1, -1));
+//        sp_mainlayout.getChildren().add(new Hexagone(1, 0, -1));
         primaryStage.show();
 
     }

@@ -17,16 +17,18 @@ public class Case {
     public int pos_y;
     public int pos_z;
 
+    public Hexagone hexa;
     public Ball contained;
 
     public Case[] siblings = new Case[6];
 
-    public Case(int x, int y, int z)
-    {
+    public Case(int x, int y, int z) {
         this.contained = null;
         this.pos_x = x;
         this.pos_y = y;
         this.pos_z = z;
+
+        hexa = new Hexagone(x, y ,z);
     }
 
 }
