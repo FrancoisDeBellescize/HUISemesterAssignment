@@ -1,6 +1,5 @@
 package sample;
 
-import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Polyline;
 
@@ -20,7 +19,7 @@ public class Hexagone {
         this.y = y;
         this.z = z;
 
-        shape.setFill(Color.LIGHTBLUE);
+        shape.setFill(Color.LIGHTGREY);
         shape.setStroke(Color.BLACK);
         shape.setStrokeWidth(strokeSize);
     }
@@ -35,9 +34,6 @@ public class Hexagone {
             pos_x += size - (size / 7); // Pourquoi size / 7 ? Je ne sais pas ... a méditer !
         else if (z % 2 != 0 && z < 0)
             pos_x -= size - (size / 7); // Pourquoi size / 7 ? Je ne sais pas ... a méditer !
-
-//        System.out.println(pos_x + 20 * (Math.cos(Math.toRadians(30))));
-//        System.out.println(pos_y + 20 * (Math.sin(Math.toRadians(30))));
 
         shape.getPoints().clear();
         shape.getPoints().addAll(

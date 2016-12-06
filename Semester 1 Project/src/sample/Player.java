@@ -11,8 +11,8 @@ public class Player {
     static int PLAYER_1 = 1;
     static int PLAYER_2 = 2;
 
-    static private Color player_1_color = Color.LIGHTYELLOW;
-    static private Color player_2_color = Color.LIGHTGREEN;
+    static private Color player_1_color = Color.WHITE;
+    static private Color player_2_color = Color.BLACK;
 
     static int CURRENT = PLAYER_1;
 

@@ -19,6 +19,10 @@ public class Case {
         this.pos_y = y;
         this.pos_z = z;
 
-        hexa = new Hexagone(x, y ,z);
+        hexa = new Hexagone(x, y, z);
+    }
+
+    void setHoover(boolean newState) {
+        hoover = newState;
     }
 }

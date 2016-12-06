@@ -22,4 +22,18 @@ public class Vector3 {
             return true;
         return false;
     }
+
+    @Override
+    public boolean equals(Object other) {
+        Vector3 tmp = (Vector3) other;
+        if (x == tmp.x && y == tmp.y && z == tmp.z)
+            return true;
+        return false;
+    }
+
+
+    @Override
+    public int hashCode() {
+        return (x * 10 + y * 20 + z * 30);
+    }
 }

@@ -40,12 +40,12 @@ public class Game extends Pane {
                 if (lastHoover == null) {
                     lastHoover = new Vector3(x, y, z);
                 } else if (!lastHoover.compare(x, y, z)) {
-//                    Case test = (Case)board.get(lastHoover);
-//                    System.out.println(test.pos_x);
-//                    lastHoover = new Vector3(x, y, z);
-                    System.out.println("x:" + x + " y:" + y + " z:" + z);
+                    Case test = (Case)board.get(lastHoover);
+                    if (test != null){
+                        System.out.println(test.pos_x);
+                        lastHoover = new Vector3(x, y, z);
+                    }
                 }
-
             }
         });
     }
