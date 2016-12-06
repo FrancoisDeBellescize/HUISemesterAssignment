@@ -1,5 +1,6 @@
 package sample;
 
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -32,13 +33,8 @@ public class Game extends Pane {
         setOnMouseMoved(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                double size = width < height ? (width / 9) / 2 : (height / 9) / 2;
-                int x = (int) Math.round((event.getX() * Math.sqrt(3) / 3 - event.getY() / 3) / size);
-                int z = (int) Math.round(event.getY() * 2 / 3 / size);
-                int y = (int) Math.round(-x - z);
-
-
-                Case hoover = (Case) board.get(new Vector3(x, y, z));
+                Vector3 coord = eventToVector3(event);
+                Case hoover = (Case) board.get(coord);
 
                 if (lastHoover != null) {
                     lastHoover.setHoover(false);
@@ -50,6 +46,26 @@ public class Game extends Pane {
                 }
             }
         });
+
+        setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                Vector3 coord = eventToVector3(event);
+                Case clicked = (Case) board.get(coord);
+
+
+                clicked.select();
+            }
+        });
+    }
+
+    Vector3 eventToVector3(MouseEvent event) {
+        double size = width < height ? (width / 9) / 2 : (height / 9) / 2;
+        int x = (int) Math.round((event.getX() * Math.sqrt(3) / 3 - event.getY() / 3) / size);
+        int z = (int) Math.round(event.getY() * 2 / 3 / size);
+        int y = (int) Math.round(-x - z);
+
+        return new Vector3(x, y, z);
     }
 
     void initGrid() {

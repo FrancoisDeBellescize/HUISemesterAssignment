@@ -34,7 +34,7 @@ public class Case {
     boolean getHoover() {
         return hoover;
     }
-
+    
     void setSelect(boolean newState)
     {
         select = newState;
@@ -48,5 +48,6 @@ public class Case {
 
     boolean getSelect() {
         return select;
+
     }
 }
