@@ -43,4 +43,8 @@ public class Case {
     boolean getHoover() {
         return hoover;
     }
+
+    public void select(){
+
+    }
 }
