@@ -37,14 +37,20 @@ public class Game extends Pane {
                 int z = (int) Math.round(event.getY() * 2 / 3 / size);
                 int y = (int) Math.round(-x - z);
 
+                Case test = null;
                 if (lastHoover == null) {
                     lastHoover = new Vector3(x, y, z);
                 } else if (!lastHoover.compare(x, y, z)) {
-                    Case test = (Case)board.get(lastHoover);
-                    if (test != null){
+                    test = (Case) board.get(lastHoover);
+                    if (test != null) {
                         System.out.println(test.pos_x);
                         lastHoover = new Vector3(x, y, z);
                     }
+                }
+                if (lastHoover != null) {
+                    test = (Case) board.get(lastHoover);
+                    if (test != null)
+                        test.setHoover(false);
                 }
             }
         });

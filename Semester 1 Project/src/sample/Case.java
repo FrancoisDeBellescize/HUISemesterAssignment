@@ -25,4 +25,8 @@ public class Case {
     void setHoover(boolean newState) {
         hoover = newState;
     }
+
+    boolean getHoover() {
+        return hoover;
+    }
 }
