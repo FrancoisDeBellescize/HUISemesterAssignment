@@ -33,6 +33,11 @@ public class Case {
             hexa.shape.setStrokeWidth(2.0);
             hexa.shape.toFront();
         }
+        else
+        {
+            hexa.shape.setStroke(Color.BLACK);
+            hexa.shape.setStrokeWidth(1.0);
+        }
     }
 
     boolean getHoover() {
