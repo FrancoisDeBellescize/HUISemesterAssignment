@@ -10,8 +10,9 @@ import javafx.scene.shape.Circle;
 public class Ball {
     Circle shape;
     int stroke = 1;
-    int player;
     int x, y, z;
+
+    public int player;
 
     Ball(int player, Vector3 pos) {
         this.x = pos.x;

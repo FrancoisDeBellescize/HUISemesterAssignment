@@ -12,7 +12,10 @@ public class Player {
     static int PLAYER_2 = 2;
 
     static private Color player_1_color = Color.WHITE;
+    static private Color player_1_selectedColor = Color.YELLOW;
+
     static private Color player_2_color = Color.BLACK;
+    static private Color player_2_selectedColor = Color.GREY;
 
     static int CURRENT = PLAYER_1;
 
@@ -22,5 +25,10 @@ public class Player {
         else if (player == PLAYER_2)
             return player_2_color;
         return null;
+    }
+
+    static Color getSelectedColor(int player)
+    {
+        return (player == 1 ? player_1_selectedColor : player_2_selectedColor);
     }
 }

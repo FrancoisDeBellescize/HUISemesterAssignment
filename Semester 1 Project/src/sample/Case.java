@@ -7,7 +7,10 @@ import javafx.scene.paint.Color;
  */
 
 public class Case {
-    boolean hoover = false;
+
+    private boolean hoover = false;
+    private boolean select = false;
+
     public int pos_x;
     public int pos_y;
     public int pos_z;
@@ -25,22 +28,25 @@ public class Case {
     }
 
     void setHoover(boolean newState) {
-        hoover = newState;
-
-        if (hoover)
-        {
-            hexa.shape.setStroke(Color.RED);
-            hexa.shape.setStrokeWidth(2.0);
-            hexa.shape.toFront();
-        }
-        else
-        {
-            hexa.shape.setStroke(Color.BLACK);
-            hexa.shape.setStrokeWidth(1.0);
-        }
+        hexa.setHoover(newState);
     }
 
     boolean getHoover() {
         return hoover;
+    }
+
+    void setSelect(boolean newState)
+    {
+        select = newState;
+
+        if (select)
+            contained.shape.setFill(Player.getSelectedColor(contained.player));
+        else
+            contained.shape.setFill(Player.getColor(contained.player));
+
+    }
+
+    boolean getSelect() {
+        return select;
     }
 }

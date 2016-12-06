@@ -10,7 +10,11 @@ import javafx.scene.shape.Polyline;
 public class Hexagone {
 
     int x, y, z;
+
     int strokeSize = 1;
+
+    private static Color hoover = Color.RED;
+    private static Color notHoover = Color.BLACK;
 
     public Polyline shape = new Polyline();
 
@@ -45,5 +49,24 @@ public class Hexagone {
                 pos_x + size * (Math.cos(Math.toRadians(60 * 5 + 30))), pos_y + size * (Math.sin(Math.toRadians(60 * 5 + 30))),
                 pos_x + size * (Math.cos(Math.toRadians(60 * 0 + 30))), pos_y + size * (Math.sin(Math.toRadians(60 * 0 + 30))));
         shape.toBack();
+    }
+
+    public void setHoover(boolean state)
+    {
+
+        if (state)
+        {
+            shape.toFront();
+            shape.setStrokeWidth(2.0);
+            shape.setStroke(hoover);
+        }
+        else
+        {
+            shape.toBack();
+            shape.setStrokeWidth(1.0);
+            shape.setStroke(notHoover);
+        }
+
+        return;
     }
 }
