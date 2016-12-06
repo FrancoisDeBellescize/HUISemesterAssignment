@@ -29,8 +29,9 @@ public class Case {
 
         if (hoover)
         {
-            hexa.shape.setStroke(Color.PINK);
+            hexa.shape.setStroke(Color.RED);
             hexa.shape.setStrokeWidth(2.0);
+            hexa.shape.toFront();
         }
     }
 
