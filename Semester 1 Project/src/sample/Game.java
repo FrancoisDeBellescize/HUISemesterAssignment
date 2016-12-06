@@ -12,7 +12,7 @@ public class Game extends Pane {
 
     double width;
     double height;
-    Vector3 lastHoover = null;
+    Case lastHoover = null;
     Hashtable board;
 
     Game() {
@@ -37,22 +37,16 @@ public class Game extends Pane {
                 int z = (int) Math.round(event.getY() * 2 / 3 / size);
                 int y = (int) Math.round(-x - z);
 
-                Case test = null;
-                if (lastHoover == null) {
-                    lastHoover = new Vector3(x, y, z);
-                } else if (!lastHoover.compare(x, y, z)) {
-                    test = (Case) board.get(lastHoover);
-                    if (test != null) {
-                        test.setHoover(true);
-                        System.out.println(test.pos_x);
-                        lastHoover = new Vector3(x, y, z);
-                    }
-                }
+
+                Case hoover = (Case) board.get(new Vector3(x, y, z));
 
                 if (lastHoover != null) {
-                    test = (Case) board.get(lastHoover);
-                    if (test != null)
-                        test.setHoover(false);
+                    lastHoover.setHoover(false);
+                }
+
+                if (hoover != null) {
+                    hoover.setHoover(true);
+                    lastHoover = hoover;
                 }
             }
         });
