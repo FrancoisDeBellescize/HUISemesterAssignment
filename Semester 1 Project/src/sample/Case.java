@@ -1,5 +1,7 @@
 package sample;
 
+import javafx.scene.paint.Color;
+
 /**
  * Created by simonleyendecker on 22/11/2016.
  */
@@ -24,5 +26,11 @@ public class Case {
 
     void setHoover(boolean newState) {
         hoover = newState;
+
+        if (hoover)
+        {
+            hexa.shape.setStroke(Color.PINK);
+            hexa.shape.setStrokeWidth(2.0);
+        }
     }
 }
