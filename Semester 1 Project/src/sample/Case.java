@@ -1,26 +1,17 @@
 package sample;
 
-
-import java.lang.reflect.Array;
-
 /**
  * Created by simonleyendecker on 22/11/2016.
  */
 
 public class Case {
-
-    public static final int EMPTY = 0;
-    public static final int PLAYER1 = 1;
-    public static final int PLAYER2 = 2;
-
+    boolean hoover = false;
     public int pos_x;
     public int pos_y;
     public int pos_z;
 
     public Hexagone hexa;
     public Ball contained;
-
-    public Case[] siblings = new Case[6];
 
     public Case(int x, int y, int z) {
         this.contained = null;
@@ -30,5 +21,4 @@ public class Case {
 
         hexa = new Hexagone(x, y ,z);
     }
-
 }
