@@ -1,15 +1,9 @@
 package sample;
 
 import javafx.application.Application;
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-
-import java.util.Hashtable;
-import java.util.Iterator;
-import java.util.Set;
 
 public class Main extends Application {
 

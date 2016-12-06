@@ -33,4 +33,8 @@ public class Case {
             hexa.shape.setStrokeWidth(2.0);
         }
     }
+
+    boolean getHoover() {
+        return hoover;
+    }
 }
